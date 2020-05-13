@@ -147,11 +147,11 @@ local function display()
   for k, v in pairs(oses) do
     local currYH = yH + (k - 1)
     if k == activeEntry then
-      term.setTextColor(colors.white)
-      term.setBackgroundColor(colors.purple)
-      printCentered(" "..v.description.." ", currYH)
-      term.setTextColor(colors.purple)
+      term.setTextColor(colors.black)
       term.setBackgroundColor(colors.white)
+      printCentered(" "..v.description.." ", currYH)
+      term.setTextColor(colors.white)
+      term.setBackgroundColor(colors.black)
     else
       printCentered(v.description, currYH)
     end
@@ -227,6 +227,7 @@ if not chosenOS.aware then
   print("The chosen OS is not aware that it is being run in a sandboxed environment. Automatically mounting all disk drives...")
   for k, v in pairs(disks) do
     mounter.mount(v, v)
+    print( "Mounted disk to \"" .. v .. "\" successfully" )
   end
   print("Mounting mounting tools for manual mounting after the fact.")
   mounter.mount("/tools/", "/tools")
