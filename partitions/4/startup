@@ -1,0 +1,2 @@
+print("Installing CCWindows...")
+shell.run("pastebin", "run", "MxXaY46Q")
