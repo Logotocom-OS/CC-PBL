@@ -13,6 +13,7 @@ local function crash(reason)
   error()
 end
 
+function main()
 term.clear()
 term.setCursorPos(1,1)
 shell.setPath(shell.path()..":".."/tools/")
@@ -236,3 +237,10 @@ end
 print("Running startup...")
 sleep(2)
 shell.run("startup")
+end
+
+local ok, err = pcall(main)
+
+if not ok then
+  crash("Code Error: "..err)
+end
